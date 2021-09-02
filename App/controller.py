@@ -28,7 +28,12 @@ import csv
 """
 El controlador se encarga de mediar entre la vista y el modelo.
 """
-
+def cargarArts(filename):
+    archivo= cf.data_dir + filename
+    return model.añadirArt(archivo)
+def cargarObras(filename):
+    archivoObras= cf.data_dir + filename 
+    return model.añadirObras(archivoObras)
 # Inicialización del Catálogo de libros
 
 # Funciones para la carga de datos

@@ -34,10 +34,23 @@ se hace la solicitud al controlador para ejecutar la
 operación solicitada
 """
 
+def loadArts(catalog):
+    """
+    Carga los libros en la estructura de datos
+    """
+    controller.cargarArts(catalog)
+def loadObras(catalog):
+    controller.cargarObras(catalog)
+
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
-    print("2- ")
+    print("2- Listar cronologicamente los artistas")
+    print("3- Listar cronologicamente las adquisiciones")
+    print("4- Clasificar las obras de un artista por técnica")
+    print("5- Clasificar la nacionalidad de sus creadores")
+    print("6- Transportar obras de un departamento")
+    print("0- Salir")
 
 catalog = None
 
@@ -49,10 +62,19 @@ while True:
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
+        loadArts(catalog)
+        loadObras(catalog)
 
     elif int(inputs[0]) == 2:
-        pass
-
+        print("Los artistas ordenados cronologicamente son:")
+    elif int(inputs[0]) == 3:
+        print("Las adquisiciones ordenadas cronologicamente son:")
+    elif int(inputs[0]) == 4:
+        print("Las obras clasificadas de un artista por tecnica son:")
+    elif int(inputs[0]) == 5:
+        print("Las obras clasificadas por la nacionalidad de sus creadores son:")
+    elif int(inputs[0]) == 6:
+        print("Obras transportadas al departamento:")
     else:
         sys.exit(0)
 sys.exit(0)
