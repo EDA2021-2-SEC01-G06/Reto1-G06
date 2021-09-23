@@ -25,6 +25,7 @@
  """
 
 
+from DISClib.DataStructures.arraylist import subList
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
@@ -34,12 +35,51 @@ assert cf
 Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorias de
 los mismos.
 """
-def añadirArt(archivoA):
-    artistas= lt.newList(datastructure="SINGLE_LINKED", filename=archivoA)
-    return artistas
-def añadirObras(archivoO):
-    obras= lt.newList(datastructure="SINGLE_LINKED", filename=archivoO)
-    return obras 
+def newCatalog():
+    catalogo= {"artist" : None,
+                "artworks": None,}
+    catalogo["artist"]= lt.newList(datastructure='SINGLE_LINKED')
+    catalogo["artworks"]= lt.newList(datastructure='SINGLE_LINKED')
+
+    return catalogo 
+
+def añadirArt(catalogo, artista):
+    lt.addLast(catalogo["artist"], artista)
+def añadirObras(catalogo, artwork):
+    lt.addLast(catalogo["artworks"], artwork)
+
+def cmpBirthDate(art1,art2):
+    fecha1=art1["BeginDate"]
+    fecha2=art2["BeginDate"]
+    if fecha1<fecha2:
+        return True
+    else:
+        return False 
+
+def cmpDate(date1,date2):
+    fecha1=date1["Date"]
+    fecha2=date2["Date"]
+    if fecha1<fecha2:
+        return True
+    else:
+        return False
+
+
+def sortArtistsByDate(catalogo):
+    sublista=lt.subList(catalogo["artist"],1, lt.size(catalogo["artist"]))
+    sublista=sublista.copy()
+    lista_ord=""
+    lista_ord=sa.sort(sublista, cmpBirthDate)
+    return lista_ord 
+
+def sortFecha(catalogo, size):
+    sublista= lt.subList(catalogo["artworks"],1,size)
+    sublista=sublista.copy()
+    lista_ord=""
+    lista_ord=sa.sort(sublista, cmpDate)
+    return lista_ord
+
+
 
 # Construccion de modelos
 

@@ -1,7 +1,6 @@
 #ISIS1225 - Librerias de soporte
 
 #Alan Snade Fonseca Garcia - 202111432 - a.fonsecag@uniandes.edu.co - Requerimientos 1,4,5
-#Santiago Moncada Mejia - 202112143 - s.moncadam@uniandes.edu.co - Requerimientos 2,3,6
 
 Este proyecto contiene los Tipos abstractos de datos, estructuras de datos y algoritmos requeridos por el curso ISIS1225-Estructuras de Datos y Algoritmos
 

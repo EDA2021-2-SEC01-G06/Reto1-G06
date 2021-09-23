@@ -33,14 +33,15 @@ Presenta el menu de opciones y por cada seleccion
 se hace la solicitud al controlador para ejecutar la
 operación solicitada
 """
-
+def initCatalog():
+    return controller.initCatalog()
 def loadArts(catalog):
     """
     Carga los libros en la estructura de datos
     """
-    controller.cargarArts(catalog)
+    controller.loadArtist(catalog)
 def loadObras(catalog):
-    controller.cargarObras(catalog)
+    controller.loadArtworks(catalog)
 
 def printMenu():
     print("Bienvenido")
@@ -62,8 +63,12 @@ while True:
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
-        loadArts(catalog)
-        loadObras(catalog)
+        catalogo=initCatalog()
+        loadArts(catalogo)
+        loadObras(catalogo)
+        print("Se cargo exitosamente la informacion")
+        print("Artistas cargados: "+str(lt.size(catalogo["artist"])))
+        print("Artworks cargados: "+str(lt.size(catalogo["artworks"])))
 
     elif int(inputs[0]) == 2:
         print("Los artistas ordenados cronologicamente son:")
